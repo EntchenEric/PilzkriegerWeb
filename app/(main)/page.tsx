@@ -46,7 +46,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await fetch("/api/getUsers")
+      const response = await fetch("api/getUsers")
       const data = await response.json()
       const users = data.data
       console.log(users)
@@ -66,7 +66,7 @@ export default function HomePage() {
           <TextInput {...addMemberForm.getInputProps('id')} label="ID" placeholder="ID" />
         </Container>
         <Button onClick={() => {
-          fetch("/api/addUser", {
+          fetch("/PilzkriegerWeb/api/addUser", {
             method: "POST",
             body: JSON.stringify(addMemberForm.values)
           })
@@ -87,7 +87,7 @@ export default function HomePage() {
           onChange={setDeleteMemberValue}
         />
         <Button onClick={() => {
-          fetch("/api/removeUser", {
+          fetch("/PilzkriegerWeb/api/removeUser", {
             method: "POST",
             body: JSON.stringify({ id: deleteMemberValue?.split("(")[1].split(")")[0] })
           })
@@ -115,11 +115,11 @@ export default function HomePage() {
         </Container>
 
         <Button onClick={() => {
-          fetch("/api/editUser", {
+          fetch("/PilzkriegerWeb/api/editUser", {
             method: "POST",
             body: JSON.stringify({ id: editMemberValue?.split("(")[1].split(")")[0], ...editMemberForm.values })
           })
-          
+
           //reload window
           window.location.reload()
         }}>
@@ -132,7 +132,7 @@ export default function HomePage() {
 
         <Button onClick={() => {
           fishiTeilnehmer.map((user) => {
-            fetch("/api/editUser", {
+            fetch("/PilzkriegerWeb/api/editUser", {
               method: "POST",
               body: JSON.stringify({ id: user.split("(")[1].split(")")[0], fishParticipation: true })
             })
@@ -150,7 +150,7 @@ export default function HomePage() {
         <NumberInput value={bulkDonationValue} onChange={setBulkDonationValue} label="Spenden" placeholder="Spenden" min={0} max={500} step={100}/>
         <Button onClick={() => {
           bulkDonationUsers.map((user) => {
-            fetch("/api/editUser", {
+            fetch("/PilzkriegerWeb/api/editUser", {
               method: "POST",
               body: JSON.stringify({ id: user.split("(")[1].split(")")[0], donations: 100 })
             })
