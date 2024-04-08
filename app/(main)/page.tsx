@@ -65,13 +65,16 @@ export default function HomePage() {
           <TextInput {...addMemberForm.getInputProps('name')} label="Name" placeholder="Name" />
           <TextInput {...addMemberForm.getInputProps('id')} label="ID" placeholder="ID" />
         </Container>
-        <Button onClick={() => {
-          fetch("/PilzkriegerWeb/api/addUser", {
+        <Button onClick={async () => {
+          const respo = await fetch("/PilzkriegerWeb/api/addUser", {
             method: "POST",
             body: JSON.stringify(addMemberForm.values)
           })
+          console.log(respo)
+          const respoData = await respo.json()
+          console.log(respoData)
           //reload window
-          window.location.reload()
+          // window.location.reload()
         }}>
           Hinzufügen
         </Button>
