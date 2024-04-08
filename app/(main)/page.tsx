@@ -185,7 +185,7 @@ export default function HomePage() {
           }
         </SimpleGrid>
       </Collapse>
-      <SimpleGrid cols={3} w={"750"} mx="auto" mt={20}>
+      <SimpleGrid cols={{base: 1, lg: 3}} max-w={"750"} mx="auto" mt={20}>
         <Button p={0} onClick={openAddMemberModal}>
           Mitglied hinzufügen
         </Button>
@@ -196,7 +196,7 @@ export default function HomePage() {
           Mitgliederdaten hinzufügen
         </Button>
       </SimpleGrid>
-      <SimpleGrid cols={2} w={"750"} mx="auto" mt={20}>
+      <SimpleGrid cols={{base: 1, lg: 2}} max-w={"750"} mx="auto" mt={20}>
         <Button onClick={openFishiErgebnisseMdal} mx="auto">
           Fischikampf ergebnisse
         </Button>

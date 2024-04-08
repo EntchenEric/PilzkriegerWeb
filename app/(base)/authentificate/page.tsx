@@ -12,7 +12,7 @@ export default function HomePage() {
 
   const handleVerify = () => {
     console.log(value)
-    if (value == "EichelStinktNachKäse🤢") {
+    if (value == "  ") {
       console.log("verified")
       setCookie("verified", "Ja, der typ ist Verifiziert 🍄", {
         maxAge: 60 * 60 * 24 * 30,
