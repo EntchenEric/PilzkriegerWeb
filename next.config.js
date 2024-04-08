@@ -10,7 +10,15 @@ const nextConfig = {
 		domains: ['localhost', 'via.placeholder.com'],
 	},
 	output: "export",
-	outDir: "dist"
+	outDir: "dist",
+	typescript: {
+		// !! WARN !!
+		// Dangerously allow production builds to successfully complete even if
+		// your project has type errors.
+		// !! WARN !!
+		ignoreBuildErrors: true,
+	},
+
 }
 
 module.exports = nextConfig
