@@ -9,7 +9,7 @@ const nextConfig = {
 	images: {
 		domains: ['localhost', 'via.placeholder.com'],
 	},
-	output: "export",
+	output: "out",
 	outDir: "dist",
 	typescript: {
 		// !! WARN !!
